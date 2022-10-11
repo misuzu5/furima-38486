@@ -67,6 +67,13 @@ RSpec.describe User, type: :model do
         @user.valid?
         expect(@user.errors.full_messages).to include('Password は半角英数を両方含む必要があります')
       end
+      
+      it 'パスワードが全角だと登録できない' do
+        @user.password = 'ああああああ'
+        @user.password_confirmation = 'ああああああ'
+        @user.valid?
+        expect(@user.errors.full_messages).to include("Password は半角英数を両方含む必要があります")
+      end
 
       it 'お名前(全角)は、名字が空では登録できない' do
         @user.family_name = ''
