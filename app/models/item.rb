@@ -4,11 +4,11 @@ class Item < ApplicationRecord
   belongs_to :user
   has_one_attached :image
 
-  belongs_to :category_id
-  belongs_to :status_id
-  belongs_to :cost_id
-  belongs_to :sender_id
-  belongs_to :delivery_time_id
+  belongs_to :category
+  belongs_to :status
+  belongs_to :cost
+  belongs_to :sender
+  belongs_to :delivery_time
 
   with_options presence: true do
     validates :item_name
