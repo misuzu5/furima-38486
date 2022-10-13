@@ -18,7 +18,6 @@ class Item < ApplicationRecord
     validates :cost_id
     validates :sender_id
     validates :delivery_time_id
-    validates :user_id
     validates :image
   end
 
