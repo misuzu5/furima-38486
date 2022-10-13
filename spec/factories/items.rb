@@ -16,12 +16,3 @@ FactoryBot.define do
     end
   end
 end
-
-# モデル単体テスト内で、Fakerを使ってランダムな値を生成できるように上書きをする方法
-# https://qiita.com/TerToEer_sho/items/84ea7299c423fccb067e
-
-# Ruby on Railsの画像の保存場所(assets?public?)
-# https://qiita.com/mzmz__02/items/ce3382d62d32aec2348e
-
-# 【Ruby on Rails】to be valid, but got errors: User can’t be blank 【RSpec】が解決できなかった件
-# https://insyokuprogram.com/2021/08/08/%E3%80%90ruby-on-rails%E3%80%91to-be-valid-but-got-errors-user-cant-be-blank-%E3%80%90rspec%E3%80%91%E3%81%8C%E8%A7%A3%E6%B1%BA%E3%81%A7%E3%81%8D%E3%81%AA%E3%81%8B%E3%81%A3%E3%81%9F%E4%BB%B6/
