@@ -1,7 +1,9 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :edit]
-  before_action :set_tweet, only: [:show, :edit, :update]
+  before_action :set_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_current_user, only: [:edit, :destroy]
 
+  
   def index
     @items = Item.order('created_at DESC')
   end
@@ -23,7 +25,6 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    redirect_to action: :index unless user_signed_in? && current_user.id == @item.user_id
   end
 
   def update
@@ -34,6 +35,11 @@ class ItemsController < ApplicationController
     end
   end
 
+  def destroy
+    @item.destroy
+    redirect_to root_path
+  end
+
   private
 
   def item_params
@@ -41,8 +47,13 @@ class ItemsController < ApplicationController
                                  :price, :image).merge(user_id: current_user.id)
   end
 
-  def set_tweet
+  def set_item
     @item = Item.find(params[:id])
   end
 
+  def set_current_user
+    unless user_signed_in? && current_user.id == @item.user_id
+      redirect_to root_path
+    end
+  end
 end
