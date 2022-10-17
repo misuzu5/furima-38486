@@ -24,7 +24,6 @@ class BuyersController < ApplicationController
   def sold_item
     @item = Item.find(params[:item_id])
     if user_signed_in?
-      redirect_to root_path
     elsif current_user == @item.user_id || @item.buyer.nil?
       redirect_to root_path
     else @item.user_id || @item.buyer.nil?
