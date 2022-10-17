@@ -14,7 +14,7 @@ class BuyerAddress
 
 
   def save
-    buyers = Buyers.create(user_id: user_id, item_id: item_id)
-    Address.create(post_code: postal_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number, buyer_id: buyer.id)
+    buyer = Buyer.create(user_id: user_id, item_id: item_id)
+    Address.create(post_code: post_code, prefecture_id: prefecture_id, city: city, address: address, building_name: building_name, phone_number: phone_number, buyer_id: buyer.id)
   end
 end
