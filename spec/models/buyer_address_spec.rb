@@ -61,8 +61,14 @@ RSpec.describe BuyerAddress, type: :model do
         expect(@buyer_address.errors.full_messages).to include("Phone number is invalid")
       end   
 
-      it '電話番号は10桁以上11桁以内でしか保存できない' do
-        @buyer_address.phone_number = '111-2222-3333'
+      it '電話番号は9桁以下では保存できない' do
+        @buyer_address.phone_number = '111222333'
+        @buyer_address.valid?
+        expect(@buyer_address.errors.full_messages).to include("Phone number is invalid")
+      end   
+
+      it '電話番号は12桁以上では保存できない' do
+        @buyer_address.phone_number = '111222333444'
         @buyer_address.valid?
         expect(@buyer_address.errors.full_messages).to include("Phone number is invalid")
       end   
