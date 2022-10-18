@@ -24,7 +24,7 @@ class BuyersController < ApplicationController
   end
 
   def pay_item
-    Payjp.api_key = "sk_test_5ae5c5681b632d9bb65e697e"
+    Payjp.api_key = ENV["PAYJP_SECRET_KEY"]
     Payjp::Charge.create(
       amount: @item.price,
       card: buyer_params[:token],
